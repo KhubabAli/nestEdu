@@ -33,7 +33,6 @@
     "eslint-plugin-flowtype": "4.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "express": "^4.17.1",
     "google-map-react": "^2.0.8",
@@ -69,7 +68,16 @@
   "eslintConfig": {
     "extends": [
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -85,6 +93,7 @@
   },
   "devDependencies": {
     "eslint": "^8.16.0",
-    "eslint-config-react": "^1.1.7"
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.30.0"
   }
 }
