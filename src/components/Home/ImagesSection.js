@@ -3,7 +3,29 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { Carousel } from "react-responsive-carousel";
-import Carousel from "react-elastic-carousel";
+// import Carousel from "react-elastic-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const getItems = () =>
   Array(20)
@@ -11,11 +33,11 @@ const getItems = () =>
     .map((_, ind) => ({ id: `element-${ind}` }));
 
 const items = [
-  { id: 1, title: "Video 1" },
-  { id: 2, title: "Video 2" },
-  { id: 3, title: "Video 3" },
-  { id: 4, title: "Video 4" },
-  { id: 5, title: "Video 5" },
+  { id: 1, title: "Image 1" },
+  { id: 2, title: "Image 2" },
+  { id: 3, title: "Image 3" },
+  { id: 4, title: "Image 4" },
+  { id: 5, title: "Image 5" },
 ];
 
 const breakPoints = [
@@ -24,6 +46,7 @@ const breakPoints = [
   { width: 768, itemsToShow: 3 },
   { width: 1200, itemsToShow: 4 },
 ];
+<h3 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h3>;
 
 const Banner = () => {
   return (
@@ -37,46 +60,22 @@ const Banner = () => {
     >
       <div
         className="container"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
+        // style={{
+        //   display: "flex",
+        //   flexDirection: "column",
+        //   alignItems: "center",
+        // }}
       >
-        <h3 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h3>
-        <Carousel
-          breakPoints={breakPoints}
-          pagination={false}
-          renderArrow={({ type, onClick, isEdge }) => {
-            let arrow = "arrow-";
-            if (type == "NEXT") arrow += "right";
-            if (type == "PREV") arrow += "left";
-
-            return (
-              <button
-                onClick={onClick}
-                disabled={isEdge}
-                style={{ backgroundColor: "#56B24B" }}
-              >
-                <FontAwesomeIcon
-                  icon={["fas", arrow]}
-                  style={{
-                    marginStart: 16,
-                    width: 24,
-                    height: 24,
-                    color: "#ffffff",
-                  }}
-                />
-              </button>
-            );
-          }}
-        >
+        <div align={"center"}>
+          <h3 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h3>
+        </div>
+        <Carousel responsive={responsive}>
           {items.map((item) => (
             <div
               key={item.id}
               style={{
-                backgroundColor: "white",
-                width: "96%",
+                backgroundColor: "gray",
+                width: "93%",
                 height: 200,
                 alignItems: "center",
                 justifyContent: "center",

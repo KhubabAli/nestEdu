@@ -3,12 +3,35 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { Carousel } from "react-responsive-carousel";
-import Carousel from "react-elastic-carousel";
+// import Carousel from "react-elastic-carousel";
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const getItems = () =>
   Array(20)
     .fill(0)
     .map((_, ind) => ({ id: `element-${ind}` }));
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const items = [
   { id: 1, title: "Video 1" },
@@ -36,7 +59,26 @@ const Banner = () => {
       }}
     >
       <div className="container">
-        <Carousel
+        <Carousel responsive={responsive}>
+          {items.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                backgroundColor: "gray",
+                width: "93%",
+                height: 200,
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 32,
+                display: "flex",
+              }}
+            >
+              <h1 style={{ color: "#ffffff" }}>{item.title}</h1>
+            </div>
+          ))}
+        </Carousel>
+        ;
+        {/* <Carousel
           breakPoints={breakPoints}
           pagination={false}
           renderArrow={({ type, onClick, isEdge }) => {
@@ -79,7 +121,7 @@ const Banner = () => {
               <h1 style={{ color: "#ffffff" }}>{item.title}</h1>
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
       </div>
     </div>
   );

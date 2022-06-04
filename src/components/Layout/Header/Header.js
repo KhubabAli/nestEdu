@@ -231,7 +231,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* 
+
         <BurgerMenus menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <div
           onClick={() => setMenuOpen(false)}
@@ -242,7 +242,7 @@ const Header = () => {
         <div
           onClick={() => setShopOpen(false)}
           className={shopOpen ? "body-overlay show" : "body-overlay"}
-        ></div> */}
+        ></div>
       </header>
     </React.Fragment>
   );
