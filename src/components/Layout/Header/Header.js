@@ -20,6 +20,12 @@ const seperator = {
   borderRadius: "100%",
 };
 
+const goToBottom = () => {
+  window.scrollTo({
+    top: document.documentElement.scrollHeight,
+    behavior: "smooth",
+  });
+};
 const headerTextStyle = "font-weight-bold";
 
 const button = { margin: "0px 10px", padding: "12px 45px" };
@@ -101,7 +107,7 @@ const Header = () => {
                       <ul>
                         <li className="">
                           <span style={{ dispaly: "flex" }}>
-                            <Link href="/course-grid">
+                            <Link href="blog">
                               <a style={{ fontWeight: "bolder" }}>HOME</a>
                             </Link>
                           </span>
@@ -138,22 +144,22 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/contact">
+                          <Link href="/blog">
                             <a style={{ fontWeight: "bolder" }}>VIDEOS</a>
                           </Link>
                         </li>
 
                         <li>
-                          <Link href="/contact">
+                          <Link href="/blog">
                             <a style={{ fontWeight: "bolder" }}>
                               IMAGE GALLERY
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href="/contact">
+                          <div className="navText" onClick={goToBottom}>
                             <a style={{ fontWeight: "bolder" }}>CONTACT US</a>
-                          </Link>
+                          </div>
                         </li>
                       </ul>
                     </nav>
