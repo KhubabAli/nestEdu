@@ -14,7 +14,7 @@ import CourseTab from "../Elements/Tab/CourseTab";
 class HomeMain extends Component {
   render() {
     return (
-      <main>
+      <main style={{ backgroundColor: "#56B24B" }}>
         {/* hero-start */}
         <Hero />
         {/* hero-end */}
