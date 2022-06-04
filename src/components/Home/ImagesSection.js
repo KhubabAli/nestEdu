@@ -48,12 +48,69 @@ const breakPoints = [
 ];
 <h3 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h3>;
 
+const ButtonOne = ({ className, onClick }) => {
+  return (
+    <button className={className} onClick={onClick}>
+      <FontAwesomeIcon
+        icon={["fas", "arrow-right"]}
+        style={{
+          marginLeft: 12,
+          width: 24,
+          height: 24,
+          color: "#ffffff",
+          position: "absolute",
+          top: "35%",
+          right: -30,
+        }}
+      />
+    </button>
+  );
+};
+const ButtonTwo = ({ className, onClick }) => {
+  return (
+    <button className={className} onClick={onClick}>
+      <FontAwesomeIcon
+        icon={["fas", "arrow-left"]}
+        style={{
+          marginLeft: 12,
+          width: 24,
+          height: 24,
+          color: "#ffffff",
+          position: "absolute",
+          top: "35%",
+          left: -70,
+        }}
+      />
+    </button>
+  );
+};
+
+const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
+  const {
+    carouselState: { currentSlide },
+  } = rest;
+  return (
+    <div className="carousel-button-group">
+      {" "}
+      <ButtonOne
+        className={currentSlide === 0 ? "disable" : ""}
+        onClick={() => previous()}
+      />
+      <ButtonTwo onClick={() => next()} />
+      {/* <ButtonTwo onClick={() => goToSlide(currentSlide + 1)}>
+        {" "}
+        Go to any slide{" "}
+      </ButtonTwo> */}
+    </div>
+  );
+};
+
 const Banner = () => {
   return (
     <div
       style={{
         paddingTop: 80,
-        paddingBottom: 80,
+        paddingBottom: 50,
         marginBottom: 8,
         backgroundColor: "#56B24B",
       }}
@@ -67,26 +124,37 @@ const Banner = () => {
         // }}
       >
         <div align={"center"}>
-          <h3 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h3>
+          <h1 style={{ color: "#ffffff", marginBottom: 32 }}>IMAGE GALLERY</h1>
         </div>
-        <Carousel responsive={responsive}>
-          {items.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                backgroundColor: "gray",
-                width: "93%",
-                height: 200,
-                alignItems: "center",
-                justifyContent: "center",
-                padding: 32,
-                display: "flex",
-              }}
-            >
-              <h1 style={{ color: "#ffffff" }}>{item.title}</h1>
-            </div>
-          ))}
-        </Carousel>
+        <div style={{ position: "relative" }}>
+          <Carousel
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            responsive={responsive}
+            arrows={false}
+            renderButtonGroupOutside={true}
+            style={{ position: "relative" }}
+            customButtonGroup={<ButtonGroup />}
+          >
+            {items.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  style={{
+                    backgroundColor: "gray",
+                    width: "93%",
+                    height: 200,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 32,
+                    display: "flex",
+                  }}
+                >
+                  <h1 style={{ color: "#ffffff" }}>{item.title}</h1>
+                </div>
+              );
+            })}
+          </Carousel>
+        </div>
       </div>
     </div>
   );

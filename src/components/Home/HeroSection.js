@@ -74,10 +74,16 @@ class Hero extends Component {
                         alt="img not found"
                       />
                     </div>
-                    <div className="hero__thumb-big mr-30">
+                    <div className="hero__thumb-big mr-30 ">
                       <img
+                        // className="border border-4 border-primary"
                         src="assets/img/hero/hero-a.png"
                         alt="img not found"
+                        style={{
+                          border: "1px solid",
+                          borderWidth: 5,
+                          borderColor: "orange",
+                        }}
                       />
                       <div className="hero__quote hero__quote-animation">
                         <span>Tomorrow is our</span>

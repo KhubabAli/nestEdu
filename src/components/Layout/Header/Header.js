@@ -7,7 +7,7 @@ import ShopingCart from "./ShopingCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const image = {
-  width: "100px",
+  width: "150px",
   hieght: "100px",
   left: "40px",
   bottom: "5px",
@@ -19,6 +19,8 @@ const seperator = {
   backgroundColor: "#000000",
   borderRadius: "100%",
 };
+
+const headerTextStyle = "font-weight-bold";
 
 const button = { margin: "0px 10px", padding: "12px 45px" };
 const Header = () => {
@@ -100,20 +102,13 @@ const Header = () => {
                         <li className="">
                           <span style={{ dispaly: "flex" }}>
                             <Link href="/course-grid">
-                              <a>HOME</a>
+                              <a style={{ fontWeight: "bolder" }}>HOME</a>
                             </Link>
                           </span>
 
-                          <li>
-                            <span
-                              style={{
-                                height: 10,
-                                borderRadius: "50%",
-                              }}
-                            >
-                              {"|"}
-                            </span>
-                          </li>
+                          {/* <li>
+                            
+                          </li> */}
                           {/* <ul className="submenu">
                             <li>
                               <Link href="/course-grid">
@@ -139,52 +134,25 @@ const Header = () => {
                         </li>
                         <li className="">
                           <Link href="/blog">
-                            <a>EXPLORE US</a>
+                            <a style={{ fontWeight: "bolder" }}>EXPLORE US</a>
                           </Link>
-                        </li>
-                        <li className="">
-                          <span
-                            style={{
-                              height: 10,
-                              borderRadius: "50%",
-                            }}
-                          >
-                            {"|"}
-                          </span>
                         </li>
                         <li>
                           <Link href="/contact">
-                            <a>VIDEOS</a>
+                            <a style={{ fontWeight: "bolder" }}>VIDEOS</a>
                           </Link>
                         </li>
-                        <li className="">
-                          <span
-                            style={{
-                              height: 10,
-                              borderRadius: "50%",
-                            }}
-                          >
-                            {"|"}
-                          </span>
+
+                        <li>
+                          <Link href="/contact">
+                            <a style={{ fontWeight: "bolder" }}>
+                              IMAGE GALLERY
+                            </a>
+                          </Link>
                         </li>
                         <li>
                           <Link href="/contact">
-                            <a>IMAGE GALLERY</a>
-                          </Link>
-                        </li>
-                        <li className="">
-                          <span
-                            style={{
-                              height: 10,
-                              borderRadius: "50%",
-                            }}
-                          >
-                            {"|"}
-                          </span>
-                        </li>
-                        <li>
-                          <Link href="/contact">
-                            <a>CONTACT US</a>
+                            <a style={{ fontWeight: "bolder" }}>CONTACT US</a>
                           </Link>
                         </li>
                       </ul>
@@ -226,6 +194,24 @@ const Header = () => {
                       </div>
                     </form>
                   </div>
+                  {/* <div className="header__btn  d-none d-sm-block">
+                    <Link href="/sign-up">
+                      <a className="btn btn-primary btn-lg" style={button}>
+                        Register
+                      </a>
+                    </Link>
+                  </div>
+
+                  <div className="header__btn  d-none d-sm-block">
+                    <Link href="/sign-in">
+                      <a
+                        className="btn btn-outline-primary btn-lg"
+                        style={button}
+                      >
+                        Login
+                      </a>
+                    </Link>
+                  </div> */}
                 </div>
               </div>
             </div>

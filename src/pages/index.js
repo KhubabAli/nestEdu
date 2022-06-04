@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Layout/Header/Header";
 import Footer from "../components/Layout/Footer/Footer";
 import HomeMain from "../components/Home/HomeMain";
+import Header2 from "../components/Layout/Header/HeaderStyleThree";
 
 class Index extends React.Component {
   static getInitialProps({ store }) {}
@@ -15,7 +16,7 @@ class Index extends React.Component {
       <React.Fragment>
         <Header />
         <HomeMain />
-        {/* <Footer /> */}
+        <Footer />
       </React.Fragment>
     );
   }

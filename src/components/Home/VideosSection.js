@@ -48,18 +48,82 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
+const ButtonOne = ({ className, onClick }) => {
+  return (
+    <button className={className} onClick={onClick}>
+      <FontAwesomeIcon
+        icon={["fas", "arrow-right"]}
+        style={{
+          marginLeft: 12,
+          width: 24,
+          height: 24,
+          color: "#56B24B",
+          position: "absolute",
+          top: "35%",
+          right: -20,
+        }}
+      />
+    </button>
+  );
+};
+const ButtonTwo = ({ className, onClick }) => {
+  return (
+    <button className={className} onClick={onClick}>
+      <FontAwesomeIcon
+        icon={["fas", "arrow-left"]}
+        style={{
+          marginLeft: 12,
+          width: 24,
+          height: 24,
+          color: "#56B24B",
+          position: "absolute",
+          top: "35%",
+          left: -60,
+        }}
+      />
+    </button>
+  );
+};
+
+const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
+  const {
+    carouselState: { currentSlide },
+  } = rest;
+  return (
+    <div className="carousel-button-group">
+      {" "}
+      <ButtonOne
+        className={currentSlide === 0 ? "disable" : ""}
+        onClick={() => previous()}
+      />
+      <ButtonTwo onClick={() => next()} />
+      {/* <ButtonTwo onClick={() => goToSlide(currentSlide + 1)}>
+        {" "}
+        Go to any slide{" "}
+      </ButtonTwo> */}
+    </div>
+  );
+};
 const Banner = () => {
   return (
     <div
       style={{
         paddingTop: 80,
-        paddingBottom: 80,
+        paddingBottom: 15,
         marginBottom: 8,
         backgroundColor: "#ffffff",
+        position: "relative",
       }}
     >
-      <div className="container">
-        <Carousel responsive={responsive}>
+      <div className="container" style={{ position: "relative" }}>
+        <Carousel
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          responsive={responsive}
+          arrows={false}
+          renderButtonGroupOutside={true}
+          style={{ position: "relative" }}
+          customButtonGroup={<ButtonGroup />}
+        >
           {items.map((item) => (
             <div
               key={item.id}

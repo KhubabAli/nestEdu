@@ -4,10 +4,13 @@ import Link from "next/link";
 
 const greenText = {
   color: "#56B24B",
+  fontSize: 26,
 };
 
-const whiteText = {
+const subItemText = {
   color: "#ffffff",
+  fontSize: 24,
+  fontWeight: "bolder",
 };
 
 const itemSeperator = {
@@ -24,12 +27,13 @@ class Category extends Component {
     return (
       <main>
         <section className="category__area">
-          <div className="pt-40 pb-30" style={{ backgroundColor: "#56B24B" }}>
+          <div className="pt-30 pb-10" style={{ backgroundColor: "#56B24B" }}>
             <div className="container">
               <div className="row align-items-end">
                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-8">
-                  <div className="section__title-wrapper mb-45">
+                  <div className="section__title-wrapper">
                     <h1
+                      className="clickableText"
                       style={{
                         color: "#ffffff",
                         fontSize: 60,
@@ -42,7 +46,7 @@ class Category extends Component {
                   </div>
                 </div>
                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-4">
-                  <div className="category__more mb-50 float-md-end fix">
+                  <div className="category__more float-md-end fix mb-20 clickableText">
                     <Link href="/course-grid">
                       <a className="link-btn" style={{ color: "#ffffff" }}>
                         View all Category
@@ -67,23 +71,41 @@ class Category extends Component {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  <h3 style={greenText}>F.SC</h3>
+                  <h3 style={greenText} className="clickableText">
+                    F.SC
+                  </h3>
                   <div style={itemSeperator} />
-                  <h3 style={greenText}>ICS</h3>
+                  <h3 style={greenText} className="clickableText">
+                    ICS
+                  </h3>
                   <div style={itemSeperator} />
-                  <h3 style={greenText}>MATRIC</h3>
+                  <h3 style={greenText} className="clickableText">
+                    MATRIC
+                  </h3>
                 </div>
 
                 <div className="col">
-                  <h3 style={greenText} className="mb-30">
+                  <h3 style={greenText} className="mb-30 clickableText">
                     ENGINEERING TESTS
                   </h3>
-                  <h4 style={whiteText}>ECAT</h4>
-                  <h4 style={whiteText}>NUST</h4>
-                  <h4 style={whiteText}>FAST</h4>
-                  <h4 style={whiteText}>GIKI</h4>
-                  <h4 style={whiteText}>PIEAS</h4>
-                  <h4 style={whiteText}>NTS</h4>
+                  <h4 style={subItemText} className="clickableText">
+                    ECAT
+                  </h4>
+                  <h4 style={subItemText} className="clickableText">
+                    NUST
+                  </h4>
+                  <h4 style={subItemText} className="clickableText">
+                    FAST
+                  </h4>
+                  <h4 style={subItemText} className="clickableText">
+                    GIKI
+                  </h4>
+                  <h4 style={subItemText} className="clickableText">
+                    PIEAS
+                  </h4>
+                  <h4 style={subItemText} className="clickableText">
+                    NTS
+                  </h4>
                 </div>
 
                 <div className="col">
@@ -112,9 +134,15 @@ class Category extends Component {
                       <h3 style={greenText} className="mb-30">
                         MEDICAL TESTS
                       </h3>
-                      <h4 style={whiteText}>NMDCAT</h4>
-                      <h4 style={whiteText}>AGA KHAN</h4>
-                      <h4 style={whiteText}>FMDC</h4>
+                      <h4 style={subItemText} className="clickableText">
+                        NMDCAT
+                      </h4>
+                      <h4 style={subItemText} className="clickableText">
+                        AGA KHAN
+                      </h4>
+                      <h4 style={subItemText} className="clickableText">
+                        FMDC
+                      </h4>
                     </div>
                   </div>
                 </div>

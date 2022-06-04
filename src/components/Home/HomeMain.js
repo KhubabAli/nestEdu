@@ -36,7 +36,7 @@ class HomeMain extends Component {
         {/* event-end */}
 
         {/* tab-start */}
-        <Contact />
+        {/* <Contact /> */}
         {/* tab-end */}
 
         {/* cta-start */}
